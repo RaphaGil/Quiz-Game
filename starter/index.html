@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <div class="scores"><a href="highscores.html">View Highscores</a></div>
+    <div class="scores">
+      <button id="click">View Highscores</div>
 
     <div class="timer">Time: <span id="time">0</span></div>
 
@@ -39,7 +40,15 @@
           <button id="submit">Submit</button>
         </p>
       </div>
-
+    
+      <div id="wrapper" class="hide">
+        <h1>Highscores</h1>
+        <ol id="highscores"></ol>
+  
+        <a href="index.html"><button>Go Back</button></a>
+        <button id="clear">Clear Highscores</button>
+      </div>
+      
       <div id="feedback" class="feedback hide"></div>
     </div>
 
