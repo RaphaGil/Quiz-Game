@@ -26,13 +26,13 @@ To set up and view this project locally, follow these simple steps:
 
 ## Screenshots
 ### Dashboard Overview
-![Raphaela Quiz]()
+![Raphaela Quiz](https://github.com/RaphaGil/Quiz-Game/assets/128820385/76c1ce31-622f-417f-8d7b-fb180c0f026f)
 *Caption: Overview of the project's main webpage.*
 ### Dashboard Overview with the generated password
-![Password Password Generator result]()
-*Caption: A detailed view of the main webpage showcasing the generated password results.*
-![Password Password Generator prompt]()
-*Caption: A detailed view of the main webpage showcasing the prompt.*
+![Password Quiz question](https://github.com/RaphaGil/Quiz-Game/assets/128820385/e4dcf4a5-9911-47e4-9141-9fb0eee962f5)
+*Caption: A detailed view of the quiz questions.*
+![Password Password Generator prompt](https://github.com/RaphaGil/Quiz-Game/assets/128820385/c50f6646-0a57-4130-b984-d3d9b3bb3727)
+*Caption: A detailed view of the results webpage showcasing the user initial and points.*
 
 ## Usage
 - JavaScript is employed to dynamically display content or sections based on user interactions or navigation, providing a more interactive and user-friendly experience.
@@ -77,6 +77,6 @@ If you're also on the journey of learning web development and wish to contribute
 ## License
 This project is licensed under the MIT License. The MIT License is an open-source license widely used for software projects. It is known for its permissive nature, allowing users to freely use, modify, distribute, and sublicense the software without significant legal restrictions.
 
-[Raphaela Gil_Password-Generator](https://raphagil.github.io/Password-generator/) - Raphaela Gil 
+[Raphaela _ Quiz]() - Raphaela Gil 
 ## Contact Information
 If you're interested in sharing ideas, experiences, or collaborating on projects, please feel free to get in touch via email at raphaela.gil@yahoo.com or [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/raphaela-do-amaral-gil-0a9bb945/ ). You can also check my github profile at [![RaphaGil](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/RaphaGil).

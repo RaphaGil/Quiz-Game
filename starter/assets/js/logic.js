@@ -168,7 +168,7 @@ function check() {
   storedInputs.forEach((data, index) => {
     const { initials, score } = data;
     const listItem = document.createElement("li");
-    listItem.textContent = `${index + 1}. ${initials} - ${score}`;
+    listItem.textContent = `${index + 1}. ${initials} : ${score}`;
     highscores.appendChild(listItem);
   });
 
