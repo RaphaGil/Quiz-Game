@@ -10,9 +10,9 @@ a {
   transition: color 0.1s;
 }
 
-.scores:hover {
+/* .scores:hover {
   background-color: rgb(106, 172, 106);
-}
+} */
 
 button {
   display: inline-block;
@@ -25,6 +25,7 @@ button {
   color: white;
   border: 0;
   transition: background-color 0.1s;
+  padding: 10px;
 }
 
 button:hover {
@@ -59,6 +60,7 @@ li:nth-child(odd) {
   margin: 50px auto 0 auto;
   max-width: 400px;
 }
+.secondWrapper,
 .wrapper {
   margin: 100px auto 0 auto;
   max-width: 600px;
@@ -90,7 +92,9 @@ li:nth-child(odd) {
   left: 10px;
   background-color: green;
   padding: 10px;
-  border-radius: 5px;
+}
+.scores:hover{
+  background-color: rgb(106, 172, 106);
 }
 
 .feedback {
