@@ -30,7 +30,8 @@ function deductTime() {
   const penalty = 10; // Penalty time in seconds
   if (timeLeft >= penalty) {
     timeLeft -= penalty;
-    timer.textContent = timeLeft; 
+    timer.textContent = timeLeft;
+  } else {
     timeLeft = 0;
     timeIsOver();
   }
