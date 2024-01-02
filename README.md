@@ -1,4 +1,4 @@
-# Quiz-Game#
+# Quiz-Game
 
 ## Overview
  This project represents the 6th challenge within my Front-End Web Developer Bootcamp, where I've delved into JavaScript fundamentals. This challenge has been instrumental in reinforcing my understanding of essential concepts, encompassing objects, object methods, nested data, nested looping, functions, parameters, scope, localStorage, JSON, DOM manipulation, and implementing timers.

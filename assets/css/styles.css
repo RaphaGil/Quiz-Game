@@ -61,7 +61,6 @@ li:nth-child(odd) {
   max-width: 400px;
 }
 
-.secWrapper,
 .wrapper {
   margin: 100px auto 0 auto;
   max-width: 600px;
@@ -69,7 +68,7 @@ li:nth-child(odd) {
   box-shadow: rgba(0.15, 0.15, 0, 0.15) 10px 10px 8px 0px;
   color: white;
 }
-.allScores,
+
 .hide {
   display: none;
 }
@@ -93,6 +92,7 @@ li:nth-child(odd) {
   left: 10px;
   background-color: green;
   padding: 10px;
+  border-radius: 5px;
 }
 .scores:hover{
   background-color: rgb(106, 172, 106);
