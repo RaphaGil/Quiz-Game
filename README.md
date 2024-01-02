@@ -47,7 +47,7 @@ To set up and view this project locally, follow these simple steps:
 - Utilizing loops, especially the for loop, for iterative data processing.
 - Introducing and understanding interactive methods like split() and pop() for efficient data manipulation.
 ### User Interaction
-- Engaging users through interactive elements:
+- Engaging users through interactive elements.
 - Providing a selection of buttons for quiz answers.
 - Input fields for displaying user initials and scores.
 - Utilizing event listeners to capture user actions effectively.

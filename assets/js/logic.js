@@ -1,20 +1,20 @@
 
-//setting timer counting
-const timer = document.querySelector("#time"); // Assuming it's an ID, use # for ID selection
+// Setting timer countdown
+const timer = document.querySelector("#time"); 
 let timeLeft = 60;
 function setTime() {
+    // Function to start the timer
   const timeInterval = setInterval(function () {
     timeLeft--;
-    timer.textContent = timeLeft; // Update timer content in each iteration
+    timer.textContent = timeLeft; 
     if (timeLeft === 0) {
       clearInterval(timeInterval);
-      timer.textContent = ""; // Update timer text when time reaches zero
-      // Call a function named displayMessage() - you need to define this function
+      timer.textContent = ""; 
       timeIsOver();
     }
   }, 1000);
 }
-//click the start button and start the timer and questions
+// Click the start button to start the timer and questions
 const start = document.getElementById("start");
 const hideWrapper = document.getElementById("start-screen");
 if(start){
@@ -22,38 +22,32 @@ start.addEventListener("click",function(){
   hideWrapper.setAttribute("class", "hide");
   setTime();
   displayQuestion();
-}); // Add event listener to start button
+}); 
 }
 
-
+// Deduct 10s from the timer if the answer is wrong
 function deductTime() {
   const penalty = 10; // Penalty time in seconds
   if (timeLeft >= penalty) {
     timeLeft -= penalty;
-    timer.textContent = timeLeft; // Update timer content after deduction
-  } else {
+    timer.textContent = timeLeft; 
     timeLeft = 0;
-    // timer.textContent = 0; // Timer reached zero
     timeIsOver();
   }
 }
+// Pop message if the time is over and finish the quiz
 function timeIsOver() {
+  const messageElement = document.createElement("p");
   const question = document.getElementById("questions");
   if (question) {
     timer.textContent = 0;
-    question.style.display = "none";// Hide the element with the ID 'questions'
-    displayMessage("error", "The time is finished!");
+    question.style.display = "none";
+    messageElement.textContent = "The time is finished!";
+    messageElement.style.textAlign = 'center';
+    messageElement.style.color = 'red';
+    document.body.appendChild(messageElement);
     endQuiz()
   }
-}
-
-function displayMessage(status, message) {
-  const messageElement = document.createElement("p");
-  messageElement.textContent = message;
-  messageElement.style.textAlign = 'center';
-  messageElement.style.color = 'red';
-  // Assuming divQuestion is the container for messages
-  document.body.appendChild(messageElement);
 }
 
 let currentQuestion = 0;
@@ -61,12 +55,12 @@ const questionElement = document.getElementById("question-title");
 const choicesElement = document.getElementById("choices");
 const resultElement = document.getElementById("result");
 
+// Function to display questions
 function displayQuestion() {
   if (quiz && quiz[currentQuestion]) {
-    // const question = quiz[currentQuestion];
     questionElement.textContent = quiz[currentQuestion].question;
     choicesElement.innerHTML = "";
-
+// Loop through choices for the current question
     for (let i = 0; i < quiz[currentQuestion].choices.length; i++) {
       const li = document.createElement("li");
       const button = document.createElement("button");
@@ -81,28 +75,30 @@ function displayQuestion() {
     document.body.appendChild(choicesElement);
   }
 }
-
+// Function to check user's answer
 let finalScore = 0;
 const answeredQuestions = {};
 
 function checkAnswer(choice) {
   const userChoice = choice.split(" ").pop();
   const correctAnswer = quiz[currentQuestion].answer;
-  // const correctSound = new Audio('/Users/raphaeladoamaralgil/Desktop/bootcamp/homework/Quiz-Game/starter/assets/sfx/correct.wav');
-  // const incorrectSound = new Audio ('/Users/raphaeladoamaralgil/Desktop/bootcamp/homework/Quiz-Game/starter/assets/sfx/incorrect.wav')
+  const correctSound = new Audio('./assets/sfx/correct.wav');
+  const incorrectSound = new Audio ('./assets/sfx/incorrect.wav')
   if (userChoice === correctAnswer) {
+     // Handle correct answer scenario
     answeredQuestions[currentQuestion] = true;
     resultElement.textContent = "Correct!";
     resultElement.style.color = 'green';
     finalScore++;
     resultElement.setAttribute('class', 'result');
-    // playSound(correctSound);
+    correctSound.play()
   } else {
+     // Handle incorrect answer scenario
     resultElement.textContent = "Incorrect!";
     resultElement.style.color = 'red';
     finalScore--;
-    // playSound(incorrectSound);
-    deductTime();
+    incorrectSound.play()
+    deductTime();// Deduct time for incorrect answer
   
   }
   currentQuestion++;
@@ -114,36 +110,36 @@ function checkAnswer(choice) {
   }
   document.body.appendChild(resultElement);
 }
-
+// Function to end the quiz and display points and input for user initials
 function endQuiz() {
   const end = document.getElementById("end-screen");
   const input = document.getElementById("initials");
   const submitButton = document.getElementById("submit");
   const finalScoreElement = document.getElementById("final-score");
-  // const wrapper = document.querySelector('#secondWrapper')
+  
   finalScoreElement.textContent = finalScore;
-  const finalScoreValue = finalScoreElement.textContent;
-  localStorage.setItem("finalScoreValue", JSON.parse(finalScoreValue));
+  localStorage.setItem("finalScoreValue", finalScoreElement.textContent);
+  
   questionElement.textContent = "";
   choicesElement.innerHTML = "";
+
   resultElement.style.display= 'none'
   end.style.display = "block";
+  
+
   submitButton.addEventListener("click", function () {
     const userInitials = input.value.trim();
     if (userInitials !== "") {
       const newData = {
         initials: userInitials,
-        score: finalScoreValue
+        score: finalScoreElement.textContent
       };
       let storedData = JSON.parse(localStorage.getItem("storedInputs")) || [];
-
-      if (!Array.isArray(storedData)) {
-        storedData = [];
-      }
       storedData.push(newData);
       localStorage.setItem("storedInputs", JSON.stringify(storedData));
-      end.style.display = "none"
-      window.location.replace('./highscores.html')
+      
+      end.style.display = "none";
+      window.location.replace('./highscores.html');
     }})}
 
 

@@ -1,3 +1,4 @@
+// Function to check and display all scores
 function check() {
   const highscores = document.getElementById("highscores");
   highscores.innerHTML = "";
@@ -19,8 +20,8 @@ function check() {
   });
 }
 
+// Function to view highscores
 function finalCheck() {
-  console.log("hello")
 check()
 }
 finalCheck();
