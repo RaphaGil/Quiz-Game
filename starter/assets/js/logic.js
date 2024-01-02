@@ -1,3 +1,5 @@
+
+//setting timer counting
 const timer = document.querySelector("#time"); // Assuming it's an ID, use # for ID selection
 let timeLeft = 60;
 function setTime() {
@@ -12,6 +14,7 @@ function setTime() {
     }
   }, 1000);
 }
+//click the start button and start the timer and questions
 const start = document.getElementById("start");
 const hideWrapper = document.getElementById("start-screen");
 if(start){
@@ -57,7 +60,6 @@ let currentQuestion = 0;
 const questionElement = document.getElementById("question-title");
 const choicesElement = document.getElementById("choices");
 const resultElement = document.getElementById("result");
-const body = document.body;
 
 function displayQuestion() {
   if (quiz && quiz[currentQuestion]) {
@@ -118,10 +120,9 @@ function endQuiz() {
   const input = document.getElementById("initials");
   const submitButton = document.getElementById("submit");
   const finalScoreElement = document.getElementById("final-score");
-  const wrapper = document.getElementById('wrapper')
+  // const wrapper = document.querySelector('#secondWrapper')
   finalScoreElement.textContent = finalScore;
   const finalScoreValue = finalScoreElement.textContent;
-  
   localStorage.setItem("finalScoreValue", JSON.parse(finalScoreValue));
   questionElement.textContent = "";
   choicesElement.innerHTML = "";
@@ -141,10 +142,8 @@ function endQuiz() {
       }
       storedData.push(newData);
       localStorage.setItem("storedInputs", JSON.stringify(storedData));
-      // end.style.display = "none";
       end.style.display = "none"
-      wrapper.classList.remove('hide')
-      check()
+      window.location.replace('./highscores.html')
     }})}
 
     function check() {
@@ -152,13 +151,14 @@ function endQuiz() {
       highscores.innerHTML = "";
       
       const storedInputs = JSON.parse(localStorage.getItem("storedInputs")) || [];
-      storedInputs.forEach((data, index) => {
-        const { initials, score } = data;
+
+      for (let i = 0; i < storedInputs.length; i++) {
+        const { initials, score } = storedInputs[i];
         const listItem = document.createElement("li");
-        listItem.textContent = `${index + 1}. ${initials} : ${score}`;
+        listItem.textContent = `${i + 1}. ${initials} : ${score}`;
         highscores.appendChild(listItem);
-      });
-      
+       
+      }
       const clear = document.getElementById("clear");
       clear.addEventListener("click", function () {
         localStorage.removeItem("storedInputs");
@@ -166,4 +166,13 @@ function endQuiz() {
         highscores.innerHTML = ""; 
       });
     }
+  
+    function finalCheck() {
+      console.log("hello")
+    check()
+    }
+    finalCheck();
+
+
+  
     

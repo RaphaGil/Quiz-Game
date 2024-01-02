@@ -60,7 +60,8 @@ li:nth-child(odd) {
   margin: 50px auto 0 auto;
   max-width: 400px;
 }
-.secondWrapper,
+
+.secWrapper,
 .wrapper {
   margin: 100px auto 0 auto;
   max-width: 600px;
@@ -68,7 +69,7 @@ li:nth-child(odd) {
   box-shadow: rgba(0.15, 0.15, 0, 0.15) 10px 10px 8px 0px;
   color: white;
 }
-
+.allScores,
 .hide {
   display: none;
 }
